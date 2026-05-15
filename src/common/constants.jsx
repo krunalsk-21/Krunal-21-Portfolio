@@ -33,6 +33,29 @@ export const EXPERIENCE = [
     },
 ];
 
+export const EDUCATION = [
+    {
+        degree: "MCA  - Master's of Computer Applications",
+        institution: "K.K Wagh Institute of Engineering Education and Research, Nashik",
+        period: "2023",
+    },
+    {
+        degree: "BCA - Bachelor's of Computer Applications",
+        institution: "MES Abasaheb Garware College, Pune",
+        period: "2021",
+    },
+    {
+        degree: "HSC",
+        institution: "Maharashtra State Board",
+        period: "2018",
+    },
+    {
+        degree: "SSC",
+        institution: "Maharashtra State Board",
+        period: "2016",
+    },
+];
+
 export const SOCIALS = [
     { name: 'GitHub', icon: <FaGithub />, key: 'GITHUB_LINK' },
     { name: 'LinkedIn', icon: <FaLinkedin />, key: 'LINKEDIN_LINK' },
