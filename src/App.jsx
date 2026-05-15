@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './index.css';
+import profileImg from './assets/profile.jpg';
+import { CONSTANTS, EXPERIENCE, SKILLS, SOCIALS, Strings } from './common/constants';
+import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 // Components
 const Header = ({ activeSection, setActiveSection }) => {
@@ -8,7 +11,7 @@ const Header = ({ activeSection, setActiveSection }) => {
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
     { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
+    // { id: 'projects', label: 'Projects' },
     // { id: 'blogs', label: 'Blogs' },
     { id: 'contact', label: 'Contact' },
   ];
@@ -19,19 +22,19 @@ const Header = ({ activeSection, setActiveSection }) => {
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-md z-50">
       <nav className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 h-20 flex items-center justify-between">
         <div className="flex-shrink-0">
-          <h1 className="text-2xl md:text-3xl font-bold gradient-text">Krunal Karanjekar</h1>
+          {activeSection != 'home' && (
+            <h1 className="text-2xl md:text-3xl font-bold gradient-text">{CONSTANTS.NAME}</h1>
+          )}
         </div>
-
         <div className="hidden md:flex gap-1">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveSection(item.id)}
-              className={`px-4 py-2 rounded-lg transition-smooth ${
-                activeSection === item.id
-                  ? 'bg-sky-500 text-white'
-                  : 'text-slate-700 hover:bg-slate-100'
-              }`}
+              className={`px-4 py-2 rounded-lg transition-smooth ${activeSection === item.id
+                ? 'bg-sky-500 text-white'
+                : 'text-slate-700 hover:bg-slate-100'
+                }`}
             >
               {item.label}
             </button>
@@ -57,11 +60,10 @@ const Header = ({ activeSection, setActiveSection }) => {
                     setActiveSection(item.id);
                     setIsOpen(false);
                   }}
-                  className={`text-left px-6 py-3 border-b transition-smooth ${
-                    activeSection === item.id
-                      ? 'bg-sky-50 text-sky-600 font-semibold'
-                      : 'text-slate-700 hover:bg-slate-50'
-                  }`}
+                  className={`text-left px-6 py-3 border-b transition-smooth ${activeSection === item.id
+                    ? 'bg-sky-50 text-sky-600 font-semibold'
+                    : 'text-slate-700 hover:bg-slate-50'
+                    }`}
                 >
                   {item.label}
                 </button>
@@ -79,21 +81,40 @@ const Footer = () => (
     <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div>
-          <h3 className="text-xl font-bold mb-4">Krunal Karanjekar</h3>
-          <p className="text-slate-400">Building modern web experiences with React & cutting-edge technologies.</p>
+          <h3 className="text-xl font-bold mb-4">{CONSTANTS.NAME}</h3>
+          <p className="text-slate-400">{Strings.FOOTER_JOB_DESC}</p>
         </div>
         <div>
           <h4 className="font-semibold mb-4">Quick Links</h4>
-          <ul className="space-y-2 text-slate-400">
-            <li><a href="#" className="hover:text-white transition-smooth">GitHub</a></li>
-            <li><a href="#" className="hover:text-white transition-smooth">LinkedIn</a></li>
-            <li><a href="#" className="hover:text-white transition-smooth">Twitter</a></li>
+          <ul className="space-y-3 text-slate-400">
+            {SOCIALS.map((social) => (
+              <li key={social.name}>
+                <a
+                  href={CONSTANTS[social.key]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 hover:text-white transition-smooth"
+                >
+                  <span className="text-lg">{social.icon}</span>
+                  <span>{social.name}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <h4 className="font-semibold mb-4">Contact</h4>
-          <p className="text-slate-400">Email: krunalsk2000@gmail.com</p>
-          <p className="text-slate-400">Location: India</p>
+          <div className="space-y-3 text-slate-400">
+            <div className="flex items-center gap-3">
+              <FaEnvelope />
+              <span>{CONSTANTS.EMAIL_ADDRESS}</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <FaMapMarkerAlt />
+              <span>India</span>
+            </div>
+          </div>
         </div>
       </div>
       <div className="border-t border-slate-700 pt-8 text-center text-slate-400">
@@ -113,15 +134,15 @@ const Home = ({ setActiveSection }) => (
             Hi, I'm <span className="gradient-text">Krunal Karanjekar</span>
           </h1>
           <p className="text-xl text-slate-600">
-            A passionate full-stack developer crafting beautiful, functional web experiences with React, Node.js, and modern technologies.
+            {Strings.HOME_SCREEN_DESC}
           </p>
           <div className="flex gap-4">
-            <button
+            {/* <button
               onClick={() => setActiveSection('projects')}
               className="px-8 py-3 bg-sky-500 text-white rounded-lg font-semibold hover:bg-sky-600 transition-smooth"
             >
               View My Work
-            </button>
+            </button> */}
             <button
               onClick={() => setActiveSection('contact')}
               className="px-8 py-3 border-2 border-sky-500 text-sky-500 rounded-lg font-semibold hover:bg-sky-50 transition-smooth"
@@ -131,7 +152,11 @@ const Home = ({ setActiveSection }) => (
           </div>
         </div>
         <div className="flex justify-center">
-          <div className="w-64 h-64 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full shadow-lg float"></div>
+          <img
+            src={profileImg}
+            alt="Krunal Karanjekar"
+            className="w-64 h-64 object-cover rounded-full shadow-lg float"
+          />
         </div>
       </div>
     </div>
@@ -149,19 +174,15 @@ const About = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div className="slide-up space-y-4 text-slate-700">
           <p className="text-lg leading-relaxed">
-            I'm a full-stack developer with a passion for creating intuitive and engaging user experiences. With expertise in modern web technologies, I build scalable applications that solve real-world problems.
+            {Strings.ABOUT_SCREEN_DESC1}
           </p>
           <p className="text-lg leading-relaxed">
-            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.
+            {Strings.ABOUT_SCREEN_DESC2}
           </p>
           <div className="space-y-3 mt-6">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🎓</span>
-              <span>Bachelor's Degree in Computer Science</span>
-            </div>
-            <div className="flex items-center gap-3">
               <span className="text-2xl">💼</span>
-              <span>5+ Years of Experience</span>
+              <span>3+ Years of Experience</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-2xl">🌍</span>
@@ -173,7 +194,7 @@ const About = () => (
           <div className="bg-gradient-to-br from-sky-100 to-blue-100 rounded-lg p-8 space-y-4">
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Interests</h3>
             <div className="space-y-3">
-              {['Web Development', 'UI/UX Design', 'Open Source', 'Tech Blogging'].map((item) => (
+              {['Web Development', 'Mobile Development', 'API Development', "AI Integrations"].map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <span className="w-3 h-3 bg-sky-500 rounded-full"></span>
                   <span className="text-slate-700">{item}</span>
@@ -196,26 +217,7 @@ const Experience = () => (
       </div>
 
       <div className="space-y-8">
-        {[
-          {
-            title: 'Senior Full Stack Developer',
-            company: 'Tech Startup Inc',
-            period: '2022 - Present',
-            description: 'Led development of multiple React applications and Node.js backends, mentored junior developers.'
-          },
-          {
-            title: 'Full Stack Developer',
-            company: 'Digital Solutions Ltd',
-            period: '2020 - 2022',
-            description: 'Built scalable web applications using React, Express, and MongoDB for diverse clients.'
-          },
-          {
-            title: 'Junior Developer',
-            company: 'Web Design Studio',
-            period: '2018 - 2020',
-            description: 'Started career building responsive websites and learning modern development practices.'
-          }
-        ].map((exp, idx) => (
+        {EXPERIENCE.map((exp, idx) => (
           <div key={idx} className="slide-up bg-white p-6 md:p-8 rounded-lg shadow-md hover:shadow-lg transition-smooth border-l-4 border-sky-500">
             <h3 className="text-2xl font-bold text-slate-900 mb-2">{exp.title}</h3>
             <p className="text-sky-600 font-semibold mb-1">{exp.company}</p>
@@ -237,23 +239,16 @@ const Skills = () => (
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          { category: 'Frontend', skills: ['React', 'JavaScript', 'Tailwind CSS', 'Next.js'] },
-          { category: 'Backend', skills: ['Node.js', 'Express', 'MongoDB', 'PostgreSQL'] },
-          { category: 'Tools & Others', skills: ['Git', 'Docker', 'AWS', 'REST APIs'] }
-        ].map((skillGroup, idx) => (
+        {SKILLS.map((skillGroup, idx) => (
           <div key={idx} className="slide-up bg-gradient-to-br from-sky-50 to-blue-50 p-8 rounded-lg shadow-md hover:shadow-lg transition-smooth">
             <h3 className="text-2xl font-bold text-slate-900 mb-6">{skillGroup.category}</h3>
             <div className="space-y-4">
               {skillGroup.skills.map((skill) => (
-                <div key={skill} className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="font-semibold text-slate-700">{skill}</span>
-                    <span className="text-sm text-slate-500">90%</span>
+                <div key={skill} className="flex items-center gap-3">
+                  <div className="w-8 h-8 flex items-center justify-center bg-sky-100 rounded-full">
+                    ⚡
                   </div>
-                  <div className="w-full bg-slate-200 rounded-full h-2">
-                    <div className="bg-sky-500 h-2 rounded-full" style={{ width: '90%' }}></div>
-                  </div>
+                  <span className="font-medium text-slate-700">{skill}</span>
                 </div>
               ))}
             </div>
@@ -376,14 +371,14 @@ const Contact = () => (
               <span className="text-2xl">✉️</span>
               <div>
                 <p className="font-semibold text-slate-900">Email</p>
-                <p className="text-slate-600">contact@krunal.dev</p>
+                <p className="text-slate-600">{CONSTANTS.EMAIL_ADDRESS}</p>
               </div>
             </div>
             <div className="flex gap-4">
               <span className="text-2xl">📱</span>
               <div>
                 <p className="font-semibold text-slate-900">Phone</p>
-                <p className="text-slate-600">+91-XXXX-XXXX-XX</p>
+                <p className="text-slate-600">{CONSTANTS.PHONE_NUMBER}</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -397,7 +392,14 @@ const Contact = () => (
               <span className="text-2xl">📄</span>
               <div>
                 <p className="font-semibold text-slate-900">Resume</p>
-                <a href="#" className="text-sky-600 hover:text-sky-700 font-semibold">Download CV →</a>
+                {/* <a href="#" className="text-sky-600 hover:text-sky-700 font-semibold">Download CV →</a> */}
+                <a
+                  href="../public/Krunal_Karanjekar_Resume.pdf"
+                  download
+                  className="text-sky-600 hover:text-sky-700 font-semibold"
+                >
+                  Download CV →
+                </a>
               </div>
             </div>
           </div>
@@ -425,10 +427,12 @@ const Contact = () => (
       <div className="text-center">
         <p className="text-slate-600 mb-6">Follow me on social media</p>
         <div className="flex justify-center gap-4">
-          {[{ name: 'GitHub', icon: '🐙' }, { name: 'LinkedIn', icon: '💼' }, { name: 'Twitter', icon: '🐦' }].map((social) => (
+          {SOCIALS.map((social) => (
             <a
               key={social.name}
-              href="#"
+              href={CONSTANTS[social.key]}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 bg-white rounded-full shadow-md hover:shadow-lg hover:bg-sky-50 flex items-center justify-center text-xl transition-smooth"
               title={social.name}
             >
@@ -450,8 +454,8 @@ function App() {
       case 'about': return <About />;
       case 'experience': return <Experience />;
       case 'skills': return <Skills />;
-      case 'projects': return <Projects />;
-      case 'blogs': return <Blogs />;
+      // case 'projects': return <Projects />;
+      // case 'blogs': return <Blogs />;
       case 'contact': return <Contact />;
       default: return <Home setActiveSection={setActiveSection} />;
     }
