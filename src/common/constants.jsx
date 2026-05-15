@@ -81,5 +81,9 @@ export const Strings = {
     HOME_SCREEN_DESC: "A passionate developer building mobile and web apps using React Native, Flutter, Node.js, and AI technologies.\nExperienced in handling complete projects from scratch to deployment with clean and efficient code.\nFocused on creating smart, user-friendly, and scalable digital solutions.",
     ABOUT_SCREEN_DESC1: "A passionate developer focused on building modern mobile, web, and AI-driven applications using React Native, Flutter, Node.js, and emerging technologies.I specialize in taking ideas from concept to complete execution, handling everything from architecture and development to deployment and optimization.",
     ABOUT_SCREEN_DESC2: "With a strong interest in AI integration and scalable system design, I aim to create intelligent, high-performance, and user-friendly digital products that solve real-world problems.",
-    FOOTER_JOB_DESC: "Building modern experiences with React & cutting-edge technologies."
+    FOOTER_JOB_DESC: "Crafting modern, high-performance user experiences using cutting-edge technologies."
 };
+
+export const EMAIL_SEVICE_ID = "service_7h691hp";
+export const EMAIL_TEMPLATE_ID = "template_f6745a9";
+export const EMAIL_PUBLIC_KEY = "5QQWzIOPy1c8-vT-6";
