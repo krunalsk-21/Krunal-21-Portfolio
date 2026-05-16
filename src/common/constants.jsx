@@ -64,22 +64,53 @@ export const SOCIALS = [
 
 export const SKILLS = [
     {
-        category: 'Frontend',
-        skills: ['React JS', 'React Native', 'Flutter'],
+        category: 'Mobile Development',
+        skills: [
+            'React Native',
+            'Flutter',
+            'REST API Integration',
+            'Push Notifications',
+            'App Deployment (Play Store/App Store)',
+        ],
+    },
+    // {
+    //     category: 'Backend',
+    //     skills: [
+    //         'Node.js',
+    //         'Express.js'
+    //     ],
+    // },
+    // {
+    //     category: 'API & Architecture',
+    //     skills: [
+    //         'REST API Development',
+    //         'MVC Architecture',
+    //         'Microservices Basics',
+    //         'JWT Authentication'
+    //     ],
+    // },
+    {
+        category: 'Development tools',
+        skills: [
+            'Git',
+            'Visual Studio Code',
+            'Android Studio',
+            'Xcode'
+        ],
     },
     {
-        category: 'Backend',
-        skills: ['Node.js'],
-    },
-    {
-        category: 'Tools',
-        skills: ['Git', 'Visual Studio Code', 'Android Studio', 'XCode'],
-    },
+        category: 'AI Integration',
+        skills: [
+            'OpenAI (GPT)',
+            'Claude AI',
+            'Gemini AI',
+        ],
+    }
 ];
 
 export const Strings = {
-    HOME_SCREEN_DESC: "A passionate developer building mobile and web apps using React Native, Flutter, Node.js, and AI technologies.\nExperienced in handling complete projects from scratch to deployment with clean and efficient code.\nFocused on creating smart, user-friendly, and scalable digital solutions.",
-    ABOUT_SCREEN_DESC1: "A passionate developer focused on building modern mobile, web, and AI-driven applications using React Native, Flutter, Node.js, and emerging technologies.I specialize in taking ideas from concept to complete execution, handling everything from architecture and development to deployment and optimization.",
+    HOME_SCREEN_DESC: "A passionate developer building mobile and web apps using React Native, React JS, Flutter, Node.js, and AI technologies.\nExperienced in handling complete projects from scratch to deployment with clean and efficient code.\nFocused on creating smart, user-friendly, and scalable digital solutions.",
+    ABOUT_SCREEN_DESC1: "A passionate developer focused on building modern mobile, web, and AI-driven applications using React Native, React JS, Flutter, Node.js, and emerging technologies.I specialize in taking ideas from concept to complete execution, handling everything from architecture and development to deployment and optimization.",
     ABOUT_SCREEN_DESC2: "With a strong interest in AI integration and scalable system design, I aim to create intelligent, high-performance, and user-friendly digital products that solve real-world problems.",
     FOOTER_JOB_DESC: "Crafting modern, high-performance user experiences using cutting-edge technologies."
 };

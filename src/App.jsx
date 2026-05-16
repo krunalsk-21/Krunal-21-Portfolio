@@ -4,6 +4,7 @@ import profileImg from './assets/profile.jpg';
 import { CONSTANTS, EDUCATION, EMAIL_PUBLIC_KEY, EMAIL_SEVICE_ID, EMAIL_TEMPLATE_ID, EXPERIENCE, SKILLS, SOCIALS, Strings } from './common/constants';
 import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
+import Krunal_Karanjekar_Resume from './documents/Krunal_Karanjekar_Resume.pdf';
 
 // Components
 const Header = ({ activeSection, setActiveSection }) => {
@@ -444,9 +445,8 @@ const Contact = () => {
                 <span className="text-2xl">📄</span>
                 <div>
                   <p className="font-semibold text-slate-900">Resume</p>
-                  {/* <a href="#" className="text-sky-600 hover:text-sky-700 font-semibold">Download CV →</a> */}
                   <a
-                    href="../public/Krunal_Karanjekar_Resume.pdf"
+                    href={Krunal_Karanjekar_Resume}
                     download
                     className="text-sky-600 hover:text-sky-700 font-semibold"
                   >
