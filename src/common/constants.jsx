@@ -15,22 +15,22 @@ export const EXPERIENCE = [
         company: "23Ventures",
         period: "Jan 2026 - Present",
         description:
-            "Leading development of scalable React applications and Node.js backends. Contributing to architecture decisions and mentoring junior developers to improve code quality and delivery speed.",
+            "Working on a React-based healthcare web application for managing patient treatment workflows. Developed dynamic questionnaires to capture patient data efficiently and improve assessment flow. Built customizable prescription templates to streamline doctor prescriptions and reduce manual effort. Contributing to integration of the web view inside a React Native application for seamless cross-platform access. Focused on improving usability, scalability, and performance of the overall system.",
     },
     {
         title: "Software Engineer",
         company: "Netwin Infosolutions",
         period: "Aug 2023 - Dec 2025",
         description:
-            "Developed and maintained scalable web applications using React, Express, and MongoDB for multiple clients, focusing on performance, usability, and clean architecture.",
+            "Developed and deployed multiple cross-platform mobile applications using React Native and Flutter. Built scalable features including authentication flows, payment integration, push notifications, and real-time data handling. Worked with REST APIs, Firebase, and SQLite for efficient backend and offline-first solutions. Delivered production-ready apps published on Play Store and App Store. Collaborated with cross-functional teams to design user-friendly interfaces and high-performance systems. Continuously improved app stability, features, and user experience through updates and enhancements.",
     },
     {
         title: "Intern",
         company: "Netwin Infosolutions",
         period: "Feb 2023 - Jul 2023",
         description:
-            "Built responsive web interfaces and gained hands-on experience with modern frontend and backend technologies, establishing a strong foundation in full-stack development.",
-    },
+            "Contributed to web applications using modern frontend technologies and MySQL integration. Collaborated with cross-functional teams to deliver features and improve system performance while maintaining clear technical documentation.",
+    }
 ];
 
 export const EDUCATION = [
@@ -71,6 +71,15 @@ export const SKILLS = [
             'REST API Integration',
             'Push Notifications',
             'App Deployment (Play Store/App Store)',
+        ],
+    },
+    {
+        category: 'Web Development',
+        skills: [
+            'React JS',
+            'JavaScript',
+            'HTML5',
+            'CSS3'
         ],
     },
     // {
