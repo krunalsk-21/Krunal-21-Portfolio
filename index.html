@@ -27,9 +27,9 @@
 <body>
   <div id="root"></div>
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const redirect = params.get('redirect');
-    if (redirect) {
+    const redirect = sessionStorage.getItem('redirect');
+    if (redirect && redirect !== '/Krunal-21-Portfolio/') {
+      sessionStorage.removeItem('redirect');
       window.history.replaceState(null, '', redirect);
     }
   </script>
