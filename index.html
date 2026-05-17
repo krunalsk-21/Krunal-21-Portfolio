@@ -22,12 +22,19 @@
   <!-- Twitter / X preview -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://krunalsk-21.github.io/Krunal-21-Portfolio/preview.png" />
-  <script type="module" crossorigin src="/Krunal-21-Portfolio/assets/index-DmLIXw5c.js"></script>
-  <link rel="stylesheet" crossorigin href="/Krunal-21-Portfolio/assets/index-BePlunpT.css">
+  <script type="module" crossorigin src="/Krunal-21-Portfolio/assets/index-mNCqcvGt.js"></script>
+  <link rel="stylesheet" crossorigin href="/Krunal-21-Portfolio/assets/index-DwwDGM3S.css">
 </head>
 
 <body>
   <div id="root"></div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get('redirect');
+    if (redirect) {
+      window.history.replaceState(null, '', redirect);
+    }
+  </script>
 </body>
 
 </html>
