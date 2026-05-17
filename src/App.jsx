@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import './index.css';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -9,29 +10,38 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import { ROUTES } from './common/route';
 
-function App() {
-  const [activeSection, setActiveSection] = useState('home');
-
-  const renderSection = () => {
-    switch (activeSection) {
-      case 'home':       return <Home setActiveSection={setActiveSection} />;
-      case 'about':      return <About />;
-      case 'education':  return <Education />;
-      case 'experience': return <Experience />;
-      case 'skills':     return <Skills />;
-      case 'projects':   return <Projects />;
-      case 'contact':    return <Contact />;
-      default:           return <Home setActiveSection={setActiveSection} />;
-    }
-  };
+function AppRoutes() {
+  const location = useLocation();
+  const activeSection = location.pathname === '/' ? 'home' : location.pathname.replace(/^\//, '');
 
   return (
     <div className="w-full min-h-screen bg-white">
-      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main className="pt-20">{renderSection()}</main>
+      <Header activeSection={activeSection} />
+      <main className="pt-20">
+        <Routes>
+          <Route path="/" element={<Navigate to={ROUTES.HOME} replace />} />
+          <Route path={ROUTES.HOME} element={<Home />} />
+          <Route path={ROUTES.ABOUT} element={<About />} />
+          <Route path={ROUTES.EDUCATION} element={<Education />} />
+          <Route path={ROUTES.EXPERIENCE} element={<Experience />} />
+          <Route path={ROUTES.SKILLS} element={<Skills />} />
+          {/* <Route path={ROUTES.PROJECTS} element={<Projects />} /> */}
+          <Route path={ROUTES.CONTACT} element={<Contact />} />
+          <Route path="*" element={<Navigate to={ROUTES.HOME} replace />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router basename={import.meta.env.BASE_URL}>
+      <AppRoutes />
+    </Router>
   );
 }
 

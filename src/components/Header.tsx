@@ -1,20 +1,21 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { CONSTANTS } from '../common/constants';
+import { ROUTES } from '../common/route';
 
 interface HeaderProps {
   activeSection: string;
-  setActiveSection: (section: string) => void;
 }
 
-const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
+const Header = ({ activeSection }: HeaderProps) => {
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'education', label: 'Education' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Skills' },
-    // { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: 'Home', path: { pathname: ROUTES.HOME } },
+    { id: 'about', label: 'About', path: { pathname: ROUTES.ABOUT } },
+    { id: 'education', label: 'Education', path: { pathname: ROUTES.EDUCATION } },
+    { id: 'experience', label: 'Experience', path: { pathname: ROUTES.EXPERIENCE } },
+    { id: 'skills', label: 'Skills', path: { pathname: ROUTES.SKILLS } },
+    // { id: 'projects', label: 'Projects', path: { pathname: ROUTES.PROJECTS } },
+    { id: 'contact', label: 'Contact', path: '/contact' },
   ];
 
   const [isOpen, setIsOpen] = React.useState(false);
@@ -29,17 +30,17 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
         </div>
         <div className="hidden md:flex gap-1">
           {navItems.map((item) => (
-            <button
+            <NavLink
               key={item.id}
-              onClick={() => setActiveSection(item.id)}
-              className={`px-4 py-2 rounded-lg transition-smooth ${
-                activeSection === item.id
-                  ? 'bg-sky-500 text-white'
-                  : 'text-slate-700 hover:bg-slate-100'
-              }`}
+              to={item.path}
+              className={({ isActive }) =>
+                `px-4 py-2 rounded-lg transition-smooth ${
+                  isActive ? 'bg-sky-500 text-white' : 'text-slate-700 hover:bg-slate-100'
+                }`
+              }
             >
               {item.label}
-            </button>
+            </NavLink>
           ))}
         </div>
 
@@ -56,20 +57,18 @@ const Header = ({ activeSection, setActiveSection }: HeaderProps) => {
           <div className="absolute top-20 left-0 right-0 bg-white border-b md:hidden">
             <div className="flex flex-col">
               {navItems.map((item) => (
-                <button
+                <NavLink
                   key={item.id}
-                  onClick={() => {
-                    setActiveSection(item.id);
-                    setIsOpen(false);
-                  }}
-                  className={`text-left px-6 py-3 border-b transition-smooth ${
-                    activeSection === item.id
-                      ? 'bg-sky-50 text-sky-600 font-semibold'
-                      : 'text-slate-700 hover:bg-slate-50'
-                  }`}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `text-left px-6 py-3 border-b transition-smooth ${
+                      isActive ? 'bg-sky-50 text-sky-600 font-semibold' : 'text-slate-700 hover:bg-slate-50'
+                    }`
+                  }
                 >
                   {item.label}
-                </button>
+                </NavLink>
               ))}
             </div>
           </div>
