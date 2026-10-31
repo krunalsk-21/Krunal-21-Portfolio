@@ -1,4 +1,3 @@
-import React from 'react';
 import emailjs from '@emailjs/browser';
 import { CONSTANTS, EMAIL_PUBLIC_KEY, EMAIL_SEVICE_ID, EMAIL_TEMPLATE_ID, SOCIALS } from '../common/constants';
 import Krunal_Karanjekar_Resume from '../documents/Krunal_Karanjekar_Resume.pdf';

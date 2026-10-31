@@ -1,4 +1,3 @@
-import React from 'react';
 import { SKILLS } from '../common/constants';
 
 const Skills = () => (

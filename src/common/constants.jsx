@@ -82,22 +82,22 @@ export const SKILLS = [
             'CSS3'
         ],
     },
-    // {
-    //     category: 'Backend',
-    //     skills: [
-    //         'Node.js',
-    //         'Express.js'
-    //     ],
-    // },
-    // {
-    //     category: 'API & Architecture',
-    //     skills: [
-    //         'REST API Development',
-    //         'MVC Architecture',
-    //         'Microservices Basics',
-    //         'JWT Authentication'
-    //     ],
-    // },
+    {
+        category: 'Backend',
+        skills: [
+            'Node.js',
+            'Express.js'
+        ],
+    },
+    {
+        category: 'API & Architecture',
+        skills: [
+            'REST API Development',
+            'MVC Architecture',
+            'Microservices Basics',
+            'JWT Authentication'
+        ],
+    },
     {
         category: 'Development tools',
         skills: [
@@ -118,8 +118,8 @@ export const SKILLS = [
 ];
 
 export const Strings = {
-    HOME_SCREEN_DESC: "A passionate developer building mobile and web apps using React Native, React JS, Flutter, Node.js, and AI technologies.\nExperienced in handling complete projects from scratch to deployment with clean and efficient code.\nFocused on creating smart, user-friendly, and scalable digital solutions.",
-    ABOUT_SCREEN_DESC1: "A passionate developer focused on building modern mobile, web, and AI-driven applications using React Native, React JS, Flutter, Node.js, and emerging technologies.I specialize in taking ideas from concept to complete execution, handling everything from architecture and development to deployment and optimization.",
+    HOME_SCREEN_DESC: `Full Stack Engineer with over 3 years of experience in developing and deploying production-ready mobile and web applications utilizing React Native, React.js, Flutter, and Node.js. Demonstrates strong expertise in offline-first application design, RESTful API development, Firebase integration, and app store deployment processes. Skilled in building scalable, high-performance solutions that enhance user experience across platforms. Proven ability to deliver robust applications with efficient backend services and seamless frontend functionality.`,
+    ABOUT_SCREEN_DESC1: "A passionate developer focused on building modern mobile, web, and AI-driven applications using React Native, React JS, Flutter, Node.js, and emerging technologies. I specialize in taking ideas from concept to complete execution, handling everything from architecture and development to deployment and optimization.",
     ABOUT_SCREEN_DESC2: "With a strong interest in AI integration and scalable system design, I aim to create intelligent, high-performance, and user-friendly digital products that solve real-world problems.",
     FOOTER_JOB_DESC: "Crafting modern, high-performance user experiences using cutting-edge technologies."
 };
